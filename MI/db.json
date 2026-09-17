@@ -1,0 +1,103 @@
+{
+  "hero": {
+    "eyebrow": "WebFlux",
+    "title": "Tu negocio merece una web que se vea tan bien como es",
+    "emphasis": "que se vea",
+    "lede": "Creamos páginas web front-end rápidas y a medida para pequeños negocios. Como complemento, conectamos tu sitio con automatización con N8N para que cada mensaje se convierta en un lead o una notificación, sin copiar y pegar nada.",
+    "points": [
+      "Diseño 100% a medida",
+      "Carga optimizada con Vite",
+      "Formularios que se automatizan"
+    ],
+    "primaryCta": { "label": "Pedir una cotización", "href": "#contacto" }
+  },
+  "services": {
+    "eyebrow": "Servicios",
+    "title": "Lo que hacemos, dicho sin humo",
+    "subtitle": "Nuestro núcleo es el diseño web front-end; la automatización con N8N es el plus que convierte tu web en una máquina de captar clientes mientras duermes.",
+    "items": [
+      {
+        "id": 1,
+        "title": "Páginas web front-end",
+        "highlight": true,
+        "description": "Diseño y desarrollo a medida, pensado para tu negocio real."
+      },
+      {
+        "id": 2,
+        "title": "Web apps a medida",
+        "highlight": false,
+        "description": "Rutas públicas y privadas, paneles y catálogos."
+      },
+      {
+        "id": 3,
+        "title": "Automatización con N8N",
+        "highlight": false,
+        "description": "Conecta tus formularios con correo, Sheets o WhatsApp."
+      }
+    ]
+  },
+  "process": {
+    "eyebrow": "Cómo trabajamos",
+    "title": "Un proceso de cuatro actos",
+    "subtitle": "De la idea visual al proceso que la sostiene: sin etapas fantasma, sin entregas que se quedan en el aire.",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Descubrimiento",
+        "description": "Escuchamos tu negocio, tus clientes y tus objetivos antes de escribir una sola línea de código."
+      },
+      {
+        "number": "02",
+        "title": "Diseño",
+        "description": "Diseñamos la interfaz a medida: colores, tipografía y estructura pensados para tu marca."
+      },
+      {
+        "number": "03",
+        "title": "Desarrollo",
+        "description": "Construimos con React + Vite: rápido, responsive y listo para conectar con N8N."
+      },
+      {
+        "number": "04",
+        "title": "Lanzamiento",
+        "description": "Publicamos en producción y activamos las automatizaciones detrás de tu web."
+      }
+    ]
+  },
+  "compare": {
+    "eyebrow": "Comparativa",
+    "title": "WebFlux contra el mundo",
+    "subtitle": "Lo que marca la diferencia entre tener una web y tener una web que trabaja para ti.",
+    "webfluxLabel": "WebFlux",
+    "genericLabel": "Plantillas genéricas",
+    "rows": [
+      { "label": "Diseño 100% a medida", "webflux": "yes", "generic": "no" },
+      { "label": "Código propio y mantenible", "webflux": "yes", "generic": "partial" },
+      { "label": "Formularios conectados a automatización", "webflux": "yes", "generic": "no" },
+      { "label": "Rendimiento optimizado (Vite)", "webflux": "yes", "generic": "partial" },
+      { "label": "Soporte post-lanzamiento", "webflux": "yes", "generic": "no" }
+    ]
+  },
+  "contact": {
+    "eyebrow": "Contacto",
+    "title": "¿Listo para una web que se vea tan bien como tu negocio?",
+    "subtitle": "Cuéntanos sobre tu proyecto y te respondemos con una cotización. Primera llamada de diagnóstico, sin costo y sin compromiso.",
+    "email": "riveraperezaaronncaleb@gmail.com",
+    "website": "próximamente",
+    "whatsapp": "+506 6043 3921",
+    "whatsappUrl": "https://wa.me/50660433921",
+    "submitLabel": "Pedir una cotización",
+    "whatsappCta": "Escríbenos por WhatsApp"
+  },
+  "site": {
+    "brand": "WebFlux",
+    "navCta": { "label": "Pedir una cotización", "href": "#contacto" },
+    "navLinks": [
+      { "label": "Servicios", "href": "#servicios" },
+      { "label": "Proceso", "href": "#proceso" },
+      { "label": "Contacto", "href": "#contacto" }
+    ],
+    "tagline": "Diseño web front-end + automatización digital con N8N",
+    "copyrightContact": "riveraperezaaronncaleb@gmail.com",
+    "websiteLabel": "próximamente"
+  }
+}

@@ -1,0 +1,23 @@
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--linea);
+  border-radius: var(--r-s);
+  background: transparent;
+  color: var(--tinta);
+  transition: border-color var(--t-fast), color var(--t-fast),
+    background var(--t-fast);
+}
+
+.toggle:hover {
+  border-color: var(--tinta);
+  background: var(--emph);
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+}

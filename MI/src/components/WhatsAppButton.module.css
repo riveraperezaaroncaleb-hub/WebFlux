@@ -1,0 +1,40 @@
+.button {
+  position: fixed;
+  right: var(--sp-4);
+  bottom: var(--sp-4);
+  z-index: 60;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: 0.8rem;
+  border-radius: 999px;
+  background: var(--acento);
+  color: #fff;
+  text-decoration: none;
+  transition: background var(--t-fast);
+}
+
+.button:hover {
+  background: var(--acento-osc);
+}
+
+.icon {
+  width: 22px;
+  height: 22px;
+}
+
+.label {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+@media (max-width: 479px) {
+  .label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+}

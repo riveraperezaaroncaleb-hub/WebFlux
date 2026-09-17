@@ -1,0 +1,235 @@
+:root {
+  --tinta: #221d15;
+  --tinta-2: #484130;
+  --mute: #625948;
+  --papel: #f6f1e7;
+  --papel-2: #ece4d3;
+  --linea: #d9cfba;
+  --acento: #cf4518;
+  --acento-osc: #b23a12;
+  --ambar: #c68c1e;
+  --ok: #2f5a36;
+  --err: #a3311f;
+  --azul: #4b8fe0;
+  --emph: rgba(216, 207, 186, 0.4);
+
+  --font-d: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-b: 'Inter', 'Segoe UI', system-ui, sans-serif;
+
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 24px;
+  --sp-6: 32px;
+  --sp-7: 48px;
+  --sp-8: 64px;
+  --sp-9: 96px;
+
+  --r-s: 6px;
+  --r-m: 10px;
+  --r-l: 16px;
+
+  --container: 1120px;
+  --t-fast: 160ms ease;
+  --t: 220ms ease;
+
+  --header-bg: rgba(246, 241, 231, 0.92);
+  --band-bg: #221d15;
+  --band-fg: #f6f1e7;
+  --band-soft: rgba(246, 241, 231, 0.55);
+  --band-mute: rgba(246, 241, 231, 0.75);
+  --band-line: rgba(246, 241, 231, 0.25);
+  --band-faint: rgba(246, 241, 231, 0.18);
+
+  color-scheme: light;
+}
+
+:root[data-theme='dark'] {
+  --tinta: #f1e9da;
+  --tinta-2: #d8cfbd;
+  --mute: #a49a87;
+  --papel: #16120c;
+  --papel-2: #201a13;
+  --linea: rgba(241, 233, 218, 0.16);
+  --acento: #e2622f;
+  --acento-osc: #c74e1f;
+  --ambar: #d8a43a;
+  --ok: #8fc79a;
+  --err: #f0967f;
+  --azul: #7fb3f2;
+  --emph: rgba(241, 233, 218, 0.07);
+
+  --header-bg: rgba(22, 18, 12, 0.9);
+  --band-bg: #efe6d4;
+  --band-fg: #221d15;
+  --band-soft: rgba(34, 29, 21, 0.55);
+  --band-mute: rgba(34, 29, 21, 0.7);
+  --band-line: rgba(34, 29, 21, 0.25);
+  --band-faint: rgba(34, 29, 21, 0.15);
+
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+[id] {
+  scroll-margin-top: 5rem;
+}
+
+body {
+  margin: 0;
+  background: var(--papel);
+  color: var(--tinta);
+  font-family: var(--font-b);
+  font-size: 1rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  transition: background-color var(--t), color var(--t);
+}
+
+h1,
+h2,
+h3,
+p,
+figure {
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-d);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+::selection {
+  background: var(--acento);
+  color: #fff;
+}
+
+:where(a, button, input, textarea):focus-visible {
+  outline: 2px solid var(--acento);
+  outline-offset: 2px;
+}
+
+.container {
+  width: min(100% - 2 * var(--sp-5), var(--container));
+  margin-inline: auto;
+}
+
+.section {
+  padding-block: var(--sp-8);
+}
+
+.section--alt {
+  background: var(--papel-2);
+  transition: background-color var(--t);
+}
+
+.section-heading {
+  margin-bottom: var(--sp-7);
+  max-width: 640px;
+}
+
+.section-heading__eyebrow {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--mute);
+  margin-bottom: var(--sp-3);
+}
+
+.section-heading__eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 22px;
+  height: 1px;
+  background: var(--acento);
+  vertical-align: middle;
+  margin-right: var(--sp-2);
+}
+
+.section-heading__title {
+  font-size: clamp(1.9rem, 4vw, 2.75rem);
+  line-height: 1.12;
+}
+
+.section-heading__title em {
+  font-style: italic;
+}
+
+.section-heading__subtitle {
+  margin-top: var(--sp-4);
+  color: var(--mute);
+  line-height: 1.7;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-2);
+  padding: 0.8rem 1.5rem;
+  border-radius: var(--r-s);
+  font-family: var(--font-b);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: background var(--t-fast), color var(--t-fast),
+    border-color var(--t-fast);
+}
+
+.btn--primary {
+  background: var(--acento);
+  color: #fff;
+}
+
+.btn--primary:hover {
+  background: var(--acento-osc);
+}
+
+.btn--ghost {
+  background: transparent;
+  border-color: var(--tinta);
+  color: var(--tinta);
+}
+
+.btn--ghost:hover {
+  background: var(--tinta);
+  color: var(--papel);
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding-block: var(--sp-9);
+  }
+}
