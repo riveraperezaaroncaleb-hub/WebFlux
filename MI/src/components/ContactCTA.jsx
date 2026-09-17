@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import { getContact } from '../services/content.service.js'
-import { sendContactForm } from '../services/contact.service.js'
 import styles from './ContactCTA.module.css'
 
 const EMPTY_FORM = {
@@ -13,8 +12,7 @@ const EMPTY_FORM = {
 export default function ContactCTA() {
   const [contact, setContact] = useState(null)
   const [form, setForm] = useState(EMPTY_FORM)
-  const [status, setStatus] = useState('idle')
-  const [error, setError] = useState('')
+  const [sent, setSent] = useState(false)
 
   useEffect(() => {
     let active = true
@@ -37,19 +35,22 @@ export default function ContactCTA() {
     setForm((prev) => ({ ...prev, [name]: value }))
   }
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault()
-    setStatus('loading')
-    setError('')
 
-    try {
-      await sendContactForm(form)
-      setStatus('success')
-      setForm(EMPTY_FORM)
-    } catch (err) {
-      setStatus('error')
-      setError(err.message || 'No se pudo enviar el formulario')
-    }
+    const lines = [
+      'Hola WebFlux, vengo desde tu web y quiero una cotización.',
+      `Nombre: ${form.nombre}`,
+      `Email: ${form.email}`,
+      form.negocio ? `Negocio: ${form.negocio}` : '',
+      `Mensaje: ${form.mensaje}`,
+    ].filter(Boolean)
+
+    const url = `${contact.whatsappUrl}?text=${encodeURIComponent(lines.join('\n'))}`
+    window.open(url, '_blank', 'noopener')
+
+    setSent(true)
+    setForm(EMPTY_FORM)
   }
 
   return (
@@ -175,25 +176,14 @@ export default function ContactCTA() {
           <button
             className={`btn btn--primary ${styles.submit}`}
             type="submit"
-            disabled={status === 'loading'}
           >
-            {status === 'loading'
-              ? 'Enviando…'
-              : contact
-                ? contact.submitLabel
-                : 'Pedir una cotización'}
+            {contact ? contact.submitLabel : 'Pedir una cotización'}
           </button>
 
-          {status === 'success' && (
+          {sent && (
             <p className={styles.success} role="status">
-              Gracias por escribirnos. Tu mensaje viajó directo a nuestro flujo
-              de N8N y te contactamos pronto.
-            </p>
-          )}
-
-          {status === 'error' && (
-            <p className={styles.error} role="alert">
-              {error}
+              Se abrió WhatsApp con tu mensaje listo para enviar. Si no se
+              abrió, escríbenos directo al {contact.whatsapp}.
             </p>
           )}
         </form>

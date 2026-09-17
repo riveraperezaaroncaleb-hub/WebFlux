@@ -73,7 +73,9 @@ El resultado: negocios que lanzan más rápido, se ven más profesionales que su
 - React 18 + Vite
 - React Router (enrutamiento público/privado)
 - ESLint (calidad y consistencia de código)
-- Consumo de API REST (mock con `json-server` vía `db.json` en desarrollo)
+- Consumo de datos estáticos locales (`src/data/content.js`), sin backend
+- Sitio 100% informativo: todo el contenido se edita en `src/data/content.js`
+- Formulario de contacto que abre WhatsApp con el mensaje prellenado (sin servidor)
 
 **Automatización**
 - N8N (self-hosted o cloud) como orquestador de workflows
@@ -105,10 +107,10 @@ webflux/
 │   ├── routes/                # Guards de rutas públicas y privadas
 │   │   ├── PrivateRoutes.jsx
 │   │   └── PublicRoutes.jsx
-│   ├── services/               # Llamadas a API / lógica de negocio / integraciones N8N
+│   ├── services/               # Capa de acceso a contenido estático local
+│   ├── data/                   # Contenido del sitio, editable sin tocar código de UI
 │   ├── App.jsx
 │   └── main.jsx
-├── db.json                    # Mock API (json-server) para desarrollo local
 ├── eslint.config.js
 ├── index.html
 ├── .gitignore
@@ -121,54 +123,37 @@ webflux/
 - `pages/` → composición de componentes por ruta (Home, Servicios, Automatización, Contacto).
 - `roots/Routing.jsx` → único punto donde se declara el árbol de rutas de la app.
 - `routes/` → `PrivateRoutes.jsx` y `PublicRoutes.jsx` como guards; separan lo público (landing, servicios) de lo privado (panel de cliente, dashboard de automatizaciones).
-- `services/` → capa de acceso a datos: llamadas al mock (`db.json`), a la API real cuando exista, y a los **webhooks de N8N** que disparan las automatizaciones desde el front-end.
+- `services/` → capa de acceso a datos: lee el contenido de `src/data/content.js` y lo expone a los componentes de forma asíncrona.
 
 ---
 
 ## Arquitectura y flujo de datos
 
 ```
-Usuario ──> Landing (pages/) ──> Formulario (components/)
+Usuario ──> Landing (pages/) ──> Componentes (components/)
                                       │
                                       ▼
-                         services/contact.service.js
+                    servicios/content.service.js ──► src/data/content.js
                                       │
-                          POST /webhook/n8n-lead-capture
                                       ▼
-                              Workflow en N8N
-                     ┌───────────────┼───────────────┐
-                     ▼               ▼               ▼
-               Google Sheets     Email/CRM      Notificación
-                (registro)      (seguimiento)   (Slack/WhatsApp)
+                        Render del contenido en la página
 ```
 
-El front-end nunca habla directamente con los sistemas internos del negocio: todo pasa por **un webhook de N8N**, lo que permite cambiar de CRM, agregar un paso de validación o notificar a un nuevo canal **sin tocar el código del front-end**.
+El sitio es **100% informativo y estático**: todo el contenido vive en `src/data/content.js` (se edita ahí, sin backend). El formulario de contacto no envía datos a ningún servidor: abre WhatsApp con el mensaje prellenado para que el usuario lo envíe directamente.
 
 ---
 
 ## Puesta en marcha
 
 ```bash
-# 1. Clonar el repositorio
-git clone <url-del-repo> webflux
-cd webflux
-
-# 2. Instalar dependencias
+# 1. Instalar dependencias
 npm install
 
-# 3. Levantar el mock de API (db.json)
-npx json-server --watch db.json --port 3001
-
-# 4. Levantar el entorno de desarrollo
+# 2. Levantar el entorno de desarrollo
 npm run dev
 ```
 
-Variables de entorno sugeridas (`.env`):
-
-```
-VITE_API_URL=http://localhost:3001
-VITE_N8N_WEBHOOK_URL=https://tu-instancia-n8n.app/webhook/lead-capture
-```
+No se necesita backend: el sitio funciona por sí solo. Para producción, `npm run build` genera estáticos en `dist/` que se pueden subir a cualquier hosting estático (Netlify, Vercel, GitHub Pages).
 
 ---
 
@@ -240,12 +225,12 @@ VITE_N8N_WEBHOOK_URL=https://tu-instancia-n8n.app/webhook/lead-capture
 
 ## Roadmap
 
-- [ ] Landing page pública (Home, Servicios, Casos de éxito, Contacto)
-- [ ] Formulario de contacto conectado a webhook de N8N
+- [x] Landing page pública (Home, Servicios, Proceso, Comparativa, Contacto) — sitio informativo estático sin backend
+- [x] Formulario de contacto que abre WhatsApp con mensaje prellenado
 - [ ] Panel privado de cliente (`PrivateRoutes`) con estado de sus automatizaciones
 - [ ] Catálogo de workflows de N8N reutilizables (plantillas por industria)
 - [ ] Integración de pagos / cotizador automático
-- [ ] Migración de `db.json` a API real
+- [ ] Formulario conectado a webhook de N8N cuando el backend exista
 
 ---
 

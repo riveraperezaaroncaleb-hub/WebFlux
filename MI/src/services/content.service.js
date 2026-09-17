@@ -1,14 +1,8 @@
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001'
+import content from '../data/content.js'
 
-async function getResource(resource) {
-  const response = await fetch(`${API_URL}/${resource}`)
-  if (!response.ok) throw new Error(`No se pudieron cargar ${resource}`)
-  return response.json()
-}
-
-export const getHero = () => getResource('hero')
-export const getServices = () => getResource('services')
-export const getProcess = () => getResource('process')
-export const getCompare = () => getResource('compare')
-export const getContact = () => getResource('contact')
-export const getSite = () => getResource('site')
+export const getHero = () => Promise.resolve(content.hero)
+export const getServices = () => Promise.resolve(content.services)
+export const getProcess = () => Promise.resolve(content.process)
+export const getCompare = () => Promise.resolve(content.compare)
+export const getContact = () => Promise.resolve(content.contact)
+export const getSite = () => Promise.resolve(content.site)
