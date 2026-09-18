@@ -88,6 +88,54 @@ const content = {
       { label: 'Soporte post-lanzamiento', webflux: 'yes', generic: 'no' },
     ],
   },
+  showcase: {
+    eyebrow: 'En acción',
+    title: 'No prometemos, mostramos',
+    subtitle:
+      'Capturas reales: flujos de automatización en N8N y páginas informativas front-end desarrolladas a medida. Sin renders, sin humo.',
+    items: [
+      {
+        id: 1,
+        kind: 'n8n',
+        tag: 'Automatización N8N',
+        image: 'n8n-editor',
+        alt: 'Editor de flujos de N8N',
+        title: 'Workflows visuales',
+        description:
+          'Cada automatización se arma en el editor de N8N: disparadores, lógica y destinos en un solo canvas.',
+      },
+      {
+        id: 2,
+        kind: 'n8n',
+        tag: 'Automatización N8N',
+        image: 'n8n-exec',
+        alt: 'Ejecución de un flujo de N8N',
+        title: 'Flujos que ejecutan y notifican',
+        description:
+          'Los flujos corren solos: capturan el mensaje del formulario y lo llevan a tu correo o a tu WhatsApp.',
+      },
+      {
+        id: 3,
+        kind: 'web',
+        tag: 'Front-end a medida',
+        image: 'landing',
+        alt: 'Landing informativa desarrollada por WebFlux',
+        title: 'Landing informativa',
+        description:
+          'Páginas front-end rápidas y a medida, con carga optimizada y un diseño pensado para convertir.',
+      },
+      {
+        id: 4,
+        kind: 'web',
+        tag: 'Front-end a medida',
+        image: 'sections',
+        alt: 'Secciones de una web informativa desarrollada por WebFlux',
+        title: 'Secciones que venden',
+        description:
+          'Servicios, proceso y comparativa con un orden uniforme, responsive del celular al escritorio.',
+      },
+    ],
+  },
   contact: {
     eyebrow: 'Contacto',
     title: '¿Listo para una web que se vea tan bien como tu negocio?',

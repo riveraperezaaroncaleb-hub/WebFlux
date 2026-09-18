@@ -4,8 +4,10 @@ import Hero from '../components/Hero.jsx'
 import Services from '../components/Services.jsx'
 import Process from '../components/Process.jsx'
 import Compare from '../components/Compare.jsx'
+import Showcase from '../components/Showcase.jsx'
 import ContactCTA from '../components/ContactCTA.jsx'
 import WhatsAppButton from '../components/WhatsAppButton.jsx'
+import Chatbot from '../components/Chatbot.jsx'
 import LoadingScreen from '../components/LoadingScreen.jsx'
 import { getSite } from '../services/content.service.js'
 import logo from '../assets/Captura de pantalla 2026-09-17 132657.png'
@@ -69,10 +71,12 @@ export default function Home() {
         <Services />
         <Process />
         <Compare />
+        <Showcase />
         <ContactCTA />
       </main>
       <Footer />
       <WhatsAppButton />
+      <Chatbot />
     </>
   )
 }

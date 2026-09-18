@@ -1,17 +1,17 @@
 :root {
-  --tinta: #221d15;
-  --tinta-2: #484130;
-  --mute: #625948;
-  --papel: #f6f1e7;
-  --papel-2: #ece4d3;
-  --linea: #d9cfba;
-  --acento: #cf4518;
-  --acento-osc: #b23a12;
-  --ambar: #c68c1e;
-  --ok: #2f5a36;
+  --tinta: #101a2e;
+  --tinta-2: #22324f;
+  --mute: #4c5b76;
+  --papel: #f4f6fb;
+  --papel-2: #e9eef7;
+  --linea: #cbd5e4;
+  --acento: #1d4ed8;
+  --acento-osc: #173aa8;
+  --ambar: #e8a33d;
+  --ok: #2f6b45;
   --err: #a3311f;
-  --azul: #4b8fe0;
-  --emph: rgba(216, 207, 186, 0.4);
+  --azul: #2f80ed;
+  --emph: rgba(120, 156, 218, 0.22);
 
   --font-d: 'Fraunces', Georgia, 'Times New Roman', serif;
   --font-b: 'Inter', 'Segoe UI', system-ui, sans-serif;
@@ -26,47 +26,47 @@
   --sp-8: 64px;
   --sp-9: 96px;
 
-  --r-s: 6px;
-  --r-m: 10px;
-  --r-l: 16px;
+  --r-s: 4px;
+  --r-m: 8px;
+  --r-l: 12px;
 
   --container: 1120px;
   --t-fast: 160ms ease;
   --t: 220ms ease;
 
-  --header-bg: rgba(246, 241, 231, 0.92);
-  --band-bg: #221d15;
-  --band-fg: #f6f1e7;
-  --band-soft: rgba(246, 241, 231, 0.55);
-  --band-mute: rgba(246, 241, 231, 0.75);
-  --band-line: rgba(246, 241, 231, 0.25);
-  --band-faint: rgba(246, 241, 231, 0.18);
+  --header-bg: rgba(244, 246, 251, 0.92);
+  --band-bg: #0c1426;
+  --band-fg: #f4f6fb;
+  --band-soft: rgba(244, 246, 251, 0.55);
+  --band-mute: rgba(244, 246, 251, 0.75);
+  --band-line: rgba(244, 246, 251, 0.26);
+  --band-faint: rgba(244, 246, 251, 0.18);
 
   color-scheme: light;
 }
 
 :root[data-theme='dark'] {
-  --tinta: #f1e9da;
-  --tinta-2: #d8cfbd;
-  --mute: #a49a87;
-  --papel: #16120c;
-  --papel-2: #201a13;
-  --linea: rgba(241, 233, 218, 0.16);
-  --acento: #e2622f;
-  --acento-osc: #c74e1f;
-  --ambar: #d8a43a;
-  --ok: #8fc79a;
+  --tinta: #e7edfb;
+  --tinta-2: #ccd7ee;
+  --mute: #93a3c4;
+  --papel: #0a0f1e;
+  --papel-2: #111a2e;
+  --linea: rgba(231, 237, 251, 0.16);
+  --acento: #4f83ff;
+  --acento-osc: #3a6ceb;
+  --ambar: #e9b14f;
+  --ok: #8ed6a5;
   --err: #f0967f;
-  --azul: #7fb3f2;
-  --emph: rgba(241, 233, 218, 0.07);
+  --azul: #6ea9ff;
+  --emph: rgba(231, 237, 251, 0.07);
 
-  --header-bg: rgba(22, 18, 12, 0.9);
-  --band-bg: #efe6d4;
-  --band-fg: #221d15;
-  --band-soft: rgba(34, 29, 21, 0.55);
-  --band-mute: rgba(34, 29, 21, 0.7);
-  --band-line: rgba(34, 29, 21, 0.25);
-  --band-faint: rgba(34, 29, 21, 0.15);
+  --header-bg: rgba(10, 15, 30, 0.92);
+  --band-bg: #e7edfb;
+  --band-fg: #0c1426;
+  --band-soft: rgba(12, 20, 38, 0.55);
+  --band-mute: rgba(12, 20, 38, 0.72);
+  --band-line: rgba(12, 20, 38, 0.26);
+  --band-faint: rgba(12, 20, 38, 0.15);
 
   color-scheme: dark;
 }
@@ -109,8 +109,8 @@ h1,
 h2,
 h3 {
   font-family: var(--font-d);
-  font-weight: 600;
-  letter-spacing: -0.01em;
+  font-weight: 640;
+  letter-spacing: -0.02em;
 }
 
 a {
@@ -158,9 +158,9 @@ img {
 
 .section-heading__eyebrow {
   display: block;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.18em;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--mute);
   margin-bottom: var(--sp-3);
@@ -169,16 +169,16 @@ img {
 .section-heading__eyebrow::before {
   content: '';
   display: inline-block;
-  width: 22px;
-  height: 1px;
+  width: 28px;
+  height: 3px;
   background: var(--acento);
   vertical-align: middle;
   margin-right: var(--sp-2);
 }
 
 .section-heading__title {
-  font-size: clamp(1.9rem, 4vw, 2.75rem);
-  line-height: 1.12;
+  font-size: clamp(2.1rem, 4.4vw, 3.2rem);
+  line-height: 1.08;
 }
 
 .section-heading__title em {
@@ -196,25 +196,33 @@ img {
   align-items: center;
   justify-content: center;
   gap: var(--sp-2);
-  padding: 0.8rem 1.5rem;
+  padding: 0.8rem 1.6rem;
   border-radius: var(--r-s);
   font-family: var(--font-b);
-  font-size: 0.95rem;
-  font-weight: 600;
-  letter-spacing: 0.01em;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   text-decoration: none;
   border: 1px solid transparent;
   transition: background var(--t-fast), color var(--t-fast),
-    border-color var(--t-fast);
+    border-color var(--t-fast), box-shadow var(--t-fast),
+    transform var(--t-fast);
+}
+
+.btn:hover {
+  transform: translateY(-1px);
 }
 
 .btn--primary {
   background: var(--acento);
   color: #fff;
+  box-shadow: 0 3px 0 var(--acento-osc);
 }
 
 .btn--primary:hover {
   background: var(--acento-osc);
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.35);
 }
 
 .btn--ghost {

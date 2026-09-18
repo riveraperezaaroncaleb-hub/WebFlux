@@ -1,0 +1,141 @@
+.section {
+  padding-bottom: var(--sp-9);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-6);
+}
+
+.card {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.kicker {
+  display: flex;
+  align-items: baseline;
+  gap: var(--sp-2);
+  font-family: var(--font-b);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-weight: 700;
+}
+
+.index {
+  font-size: 0.72rem;
+  color: var(--acento);
+}
+
+.tag {
+  font-size: 0.66rem;
+  color: var(--mute);
+}
+
+.shot {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  border: 1px solid var(--linea);
+  border-radius: var(--r-m);
+  overflow: hidden;
+  background: var(--papel-2);
+  transition: transform var(--t-fast), box-shadow var(--t-fast),
+    border-color var(--t-fast);
+}
+
+.card:hover .shot {
+  transform: translateY(-3px);
+  border-color: var(--tinta);
+  box-shadow: 0 18px 40px -18px rgba(34, 29, 21, 0.45);
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+}
+
+.chrome {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  background: var(--papel);
+  border-bottom: 1px solid var(--linea);
+}
+
+.chrome i {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--linea);
+}
+
+.chrome i:first-child {
+  background: var(--acento);
+}
+
+.chrome i:nth-child(2) {
+  background: var(--ambar);
+}
+
+.badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 1;
+  padding: 4px 10px;
+  border-radius: var(--r-s);
+  background: var(--tinta);
+  color: var(--papel);
+  font-family: var(--font-b);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.caption {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.rule {
+  width: 34px;
+  height: 3px;
+  background: var(--acento);
+}
+
+.name {
+  font-size: 1.25rem;
+  letter-spacing: -0.01em;
+}
+
+.desc {
+  color: var(--mute);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  max-width: 52ch;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--sp-7);
+  }
+
+  .section {
+    padding-bottom: var(--sp-9);
+  }
+}
